@@ -3,7 +3,7 @@ import numpy as np
 import json
 
 # initialize array for calculations
-stages = input("How many stages? ")
+stages = int()
 # array = np.zeros((4, stages))
 
 
@@ -30,8 +30,9 @@ def wheel_drag(WD, M):
     return WD*(M/1000)
 
 
-def speed(V, stages):
-    speeds = np.linspace(0, V, stages)
+def speed_data(V, stages):
+    speeds = np.linspace(0, V, int(stages)+1)
+    # add mean value at stage feature
     return speeds
 
 
@@ -44,6 +45,7 @@ def nth_stage():
 
 
 if __name__ == '__main__':
+    stages = input("How many stages? ")
     data = load_config()
-    d = drag(1.225, data[2], data[1], data[4])
-    print(d)
+    speeds = speed_data(data[1], stages)
+    print(speeds)
