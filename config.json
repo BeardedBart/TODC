@@ -1,0 +1,12 @@
+{
+    "aerodynamic_drag_coeff": "0.044",
+    "stall_speed": "19",
+    "thrust": [
+        "1675",
+        "1530",
+        "1199"
+    ],
+    "wing_area": "15",
+    "wheel_drag": "400",
+    "mass": "540"
+}
