@@ -33,6 +33,12 @@ def wheel_drag(WD, M):
 def speed_data(V, stages):
     speeds = np.linspace(0, V, int(stages)+1)
     # add mean value at stage feature
+    i, mean_s = 0, []
+    while not i == len(speeds) - 1:
+        val = (speeds[i] + speeds[i+1])/2
+        mean_s += val
+        print(val)
+        i += 1
     return speeds
 
 
