@@ -3,7 +3,8 @@ import numpy as np
 import json
 
 # initialize array for calculations
-array = np.zeros((4, 2))
+stages = input("How many stages? ")
+# array = np.zeros((4, stages))
 
 
 def load_config():
@@ -25,11 +26,20 @@ def drag(rho, cd, V, S):
     return 0.5*rho*cd*(V**2)*S
 
 
-def first_column():
+def wheel_drag(WD, M):
+    return WD*(M/1000)
+
+
+def speed(V, stages):
+    speeds = np.linspace(0, V, stages)
+    return speeds
+
+
+def first_stage():
     None
 
 
-def nth_column():
+def nth_stage():
     None
 
 
