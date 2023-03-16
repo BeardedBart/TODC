@@ -2,9 +2,7 @@
 import numpy as np
 import json
 
-# initialize array for calculations
 stages = int()
-# array = np.zeros((4, stages))
 
 
 def load_config():
@@ -27,6 +25,7 @@ def drag(rho, cd, V, S):
 
 
 def wheel_drag(WD, M):
+    '''Calculate drag of wheels on the take-off'''
     return WD*(M/1000)
 
 
@@ -39,7 +38,7 @@ def speed_data(V, stages):
         mean_s += val
         print(val)
         i += 1
-    return speeds
+    return speeds, mean_s
 
 
 def first_stage():
