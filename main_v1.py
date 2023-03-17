@@ -19,7 +19,7 @@ def load_config():
     return T, V, CD, WD, S, M
 
 
-def drag(rho, cd, V, S):
+def drag(cd, V, S, rho=1.2255):
     '''Calculate drag'''
     return 0.5*rho*cd*(V**2)*S
 
@@ -27,6 +27,23 @@ def drag(rho, cd, V, S):
 def wheel_drag(WD, M):
     '''Calculate drag of wheels on the take-off'''
     return WD*(M/1000)
+
+
+def thrust_corr(T):
+    '''Thrust correction'''
+    if len(T) == 1:
+        return T
+    else:
+        i, mean_T = []
+        while not i == len(T) - 1:
+            val = (float(T[i]) + float(T[i+1]))/2
+            mean_T += val
+            i += 1
+        return mean_T
+
+
+def true_force(thrust, drag, wheel_drag, stage):
+    return thrust - drag - wheel_drag
 
 
 def speed_data(V, stages):
