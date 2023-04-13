@@ -42,7 +42,7 @@ def thrust_corr(T):
         return mean_T
 
 
-def true_force(thrust, drag, wheel_drag, stage):
+def true_force(thrust, drag, wheel_drag):
     return thrust - drag - wheel_drag
 
 
